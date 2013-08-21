@@ -1,5 +1,5 @@
 /*
- * jQuery mmfAjaxHelper plugin
+ * jQuery htmlAjaxHelper plugin
  * Version 1.0
  * @requires jQuery v1.7 or later
  * @requires jQuery.blockUI.js
@@ -114,7 +114,7 @@
         }
     });
 
-    $.fn.mmfAjaxHelper = function() {
+    $.fn.hahAjaxHelper = function() {
         hah_url = this.attr('data-hah-url');        
         hah_action = this.attr('data-hah-action');
         hah_id_selector = this.attr('data-hah-id-selector');                
@@ -160,6 +160,8 @@
 
 
 
+/*
+You must include this for the plugin to work
 $(function() {
     $('[data-hah-action]').on('click', function (e) {        
         if ($(this).attr('href')) {
@@ -168,6 +170,7 @@ $(function() {
         $(this).mmfAjaxHelper();
     });
 });
+*/
 
 /*
 copy and paste to have a demo of use...
@@ -193,17 +196,17 @@ Got the idea? Now with loading in a div
 <br>
 Now loading in a modal
 <br>
-<button data-hah-action="modalLoad" data-hah-url="http://fima-sandbox/app_dev.php/api/1.0/users.json" data-hah-id-selector="#hah-moda2l" data-hah-block-message="block message for load users on .content" >Load in modal Users with custom block message (if not exist data-hah-id-selector tryes to create it)</button>
+<button data-hah-action="modal" data-hah-url="http://fima-sandbox/app_dev.php/api/1.0/users.json" data-hah-id-selector="#hah-moda2l" data-hah-block-message="block message for load users on .content" >Load in modal Users with custom block message (if not exist data-hah-id-selector tryes to create it)</button>
 <br>
-<button data-hah-action="modalLoad" data-hah-url="http://fima-sandbox/app_dev.php/api/1.0/users.json" data-hah-id-selector="#hah-modal" data-hah-block-id-selector="#hah-modal" >load in modal Users, blocking only the modal </button>
+<button data-hah-action="modal" data-hah-url="http://fima-sandbox/app_dev.php/api/1.0/users.json" data-hah-id-selector="#hah-modal" data-hah-block-id-selector="#hah-modal" >load in modal Users, blocking only the modal </button>
 <br>
-<button data-hah-action="modalLoad" data-hah-url="http://fima-sandbox/app_dev.php/api/1.0/users.json" data-hah-id-selector="#fima-modal" data-hah-modal-add-class="span10" >load in modal Users, with an span10!!!</button>
+<button data-hah-action="modal" data-hah-url="http://fima-sandbox/app_dev.php/api/1.0/users.json" data-hah-id-selector="#fima-modal" data-hah-modal-add-class="span10" >load in modal Users, with an span10!!!</button>
 <br>
 You can use an a href instead of a button, href would be use as data-hah-url. If both appears data-hah-url has precedence over href
 <br>
-<a href="http://fima-sandbox/app_dev.php/api/1.0/users.json" data-hah-action="modalLoad"  data-hah-id-selector="#hah-modal" data-hah-modal-add-class="span10" >load in modal Users, with an span10!!! using an a href</a>
+<a href="http://fima-sandbox/app_dev.php/api/1.0/users.json" data-hah-action="modal"  data-hah-id-selector="#hah-modal" data-hah-modal-add-class="span10" >load in modal Users, with an span10!!! using an a href</a>
 <br>
-<span data-hah-url="http://fima-sandbox/app_dev.php/api/1.0/users.json" data-hah-action="modalLoad"  data-hah-id-selector="#hah-modal" data-hah-modal-add-class="span8" >load in modal Users, with an span8... clicking on an span!!!! I am really an span, click on me!!!!</span>
+<span data-hah-url="http://fima-sandbox/app_dev.php/api/1.0/users.json" data-hah-action="modal"  data-hah-id-selector="#hah-modal" data-hah-modal-add-class="span8" >load in modal Users, with an span8... clicking on an span!!!! I am really an span, click on me!!!!</span>
 <br>
 
 */
