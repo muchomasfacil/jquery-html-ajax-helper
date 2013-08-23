@@ -71,12 +71,9 @@
         }
     });
 
-    $.fn.htmlAjaxHelper = function() {
-        // You should unbind click event first
-        // Solved thanks to http://www.dreamincode.net/forums/topic/172214-solved-clicking-link-causing-multiple-ajax-calls-load-method-being/
-        $(this).unbind('click');
+    $.fn.htmlAjaxHelper = function(events, selectors) {
         //click should be customizable
-        return $(this).on('click', function (e) {                       
+        return $(this).on(events, selectors,  function (e) {                       
             e.preventDefault();
             hah_url = $(this).attr('data-hah-url');        
             hah_action = $(this).attr('data-hah-action');
@@ -85,7 +82,8 @@
             hah_block_id_selector = $(this).attr('data-hah-block-id-selector');            
             hah_modal_options = $(this).attr('data-hah-modal-options');            
             hah_form_id_selector = $(this).attr('data-hah-form-id-selector');        
-            $(hah_form_id_selector).submit(function(e) {
+            
+            $(form).on('submit', hah_form_id_selector, (function(e) {
                 e.preventDefault();
             });
             
@@ -119,3 +117,5 @@
     }; //htmlajaxhelper plugin
  
 }( jQuery ));
+
+//is should be instanciated like $('a, button').htmlAjaxHelper('click', '[hah-action]');
